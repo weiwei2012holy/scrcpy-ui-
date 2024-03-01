@@ -16,18 +16,45 @@
   }
 }
 
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+          to bottom,
+          transparent,
+          rgb(var(--background-end-rgb))
+  ) rgb(var(--background-start-rgb));
+  @apply h-screen w-screen;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+.container {
+  display: grid;
+  grid-template-rows: 1fr 32px;
+  grid-template-columns: 64px 1fr ;
+  grid-template-areas:
+    "sidebar content"
+    "footer footer";
+  height: 100%;
+  width: 100%;
+}
+
+
+.content {
+  grid-area: content;
+  @apply h-full
+}
+
+.sidebar {
+  grid-area: sidebar;
+  @apply h-full
+}
+
+.footer {
+  grid-area: footer;
+  @apply h-full
 }
